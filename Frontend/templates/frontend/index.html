@@ -1,15 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Django REST with React</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static "css/landing.css"%}">
+  <title>Documentor</title>
 </head>
 <body>
+  <style type="text/css">
+  body{
+    font-family: 'Karla', sans-serif;
+  }
+</style>
 <div id="app">
-    <!-- React will load here -->
+  <!-- React will load here -->
 </div>
+
+<div class="txt-ilus">
+  <div class="txt" id='txt-1'>
+    <h1>Say what you want to say with Documentor</h1>
+    <p class="lead"> For the fisrt time in history, everyone in this world can say whatever they want and reach a million people who would wanna hear that. Using Documentor, you can do that in an efficient manner and have fun while doing it. <br>
+      <br>
+      Today's society rewards people with specific knowledge and for skills, use our platform to share your specific knowledge with the world, and read about other people's awesome ideas. Invite your friends over, follow them and get them to follow you.
+      <br> <br>
+    We at Documentor are trying our best to creat the best product, very soon we will be adding support for chat, podcast creations, plagarism detector and even collaborative content creation !!  </p>
+  </div>
+  <div class="ilus" id='ilus-1'><img src="{% static "graphics/undraw_Source_code.svg"%}" alt="" class="vector"></div>
+</div>
+
+<hr>
+
+<div class="txt-ilus">
+  <div class="ilus" id='ilus-2'><img src="{% static "graphics/undraw_secure_files.svg"%}" class="vector"></div>
+
+  <div class="txt" id='txt-2'>
+    <h1>You are in control !</h1>
+    <p class="lead">
+      It's time you take conntrol of your data. You can do literally anything with the content you create, delete, edit, publish on multiple platforms or don't publish at all ! You are the owner, and we will make sure no one can access your data, except you and the people you allow. <br> <br>
+      Very soon we plan to add support to import data from sites like Notion and Wordpress, so stay tuned for that !
+    </p>
+  </div>
+</div>
+
+<hr>
+
+<div class="txt-ilus" id="txt-ilus-3">
+  <div class="txt" id='txt-3'>
+    <h1>Not only for the writers</h1>
+    <p class="lead"> We understand that writers and content creators are nothing without the ones who consume their amazing ideas . Readers complete writers.<br> <br> And that's why we make sure that readers feel at home, you can follow your favourite writers, we have a dark mode to ease your eyes, you can also download a post in PDF format (given that writer allows that) and read it in your favourite app. <br> <br> We value interction and feedback too. You can provided feedback and let others know what you think about the post by commenting it. Also, don't forget to like the posts and show some appreciation to the creators. <br> <br></p>
+    <button type="button" class="btn btn-outline-info">Click here login !</button>
+  </div>
+  <div class="ilus" id='ilus-3'>
+    <img src="{% static "graphics/undraw_reading_time.svg"%}" class="vector">
+  </div>
+</div>
+
+<hr>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+  window.onresize = function() {
+    if (window.innerWidth <= 900){
+      $(document).ready(function(){
+        $("#ilus-3").prependTo("#txt-ilus-3");
+      });
+    }
+    else{
+      $(document).ready(function(){
+        $("#txt-3").prependTo("#txt-ilus-3");
+      });
+    }
+  }
+  if (screen.width <= 900){
+    $(document).ready(function(){
+      $("#ilus-3").prependTo("#txt-ilus-3");
+    });
+  }
+</script>
+
+
 </body>
-{% load static %}
+
 <script src="{% static "frontend/main.js" %}"></script>
 </html>

@@ -1,0 +1,63 @@
+body{
+	scroll-behavior: smooth;
+	margin: 0px;
+}
+
+hr{
+	border-top: 1.2px solid rgba(0,0,0,.2);
+	width: 85%;
+	visibility:hidden;
+}
+
+.txt-ilus{
+	display: grid;
+	grid-template-columns:60% 40%;
+	padding: 15px;
+	padding-top:50px;
+	height: 100vh;
+}
+
+	.vector{
+		width: 95%;
+	}
+
+	.txt{
+		font-family: 'Karla', sans-serif;
+	}
+
+	.txt .lead{
+		margin-top:5.5%;
+	}
+
+	.hid{
+		display: none;
+	}
+
+
+
+
+	@media only screen and (max-width: 991px){
+		.hid{
+			display: unset;
+		}
+	}
+
+
+	@media only screen and (max-width: 900px){
+		hr{
+			visibility:visible;
+		}
+		.txt-ilus{
+			display:inline;
+			height: 50vh;
+		}
+		.txt{
+			padding: 7px;
+		}
+		.vector{
+			width:85%;
+		}
+		#ilus-1{
+			content-visibility:hidden;
+		}
+	}
