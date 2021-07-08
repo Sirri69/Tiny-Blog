@@ -1,0 +1,53 @@
+html{
+	scroll-behavior: smooth;
+}
+
+.grid {
+	margin-top: 50px;
+	display: grid;
+	grid-template-columns: 60% 40%;
+	padding: 5px;
+}
+
+.form-style{
+	width: 82%;
+	margin-left: 19%;
+}
+
+hr{
+	display: none;
+}
+
+.hid{
+	display: none;
+}
+
+
+@media only screen and (max-width: 600px){
+	.grid{
+		margin-top: 20px;
+		display: grid;
+		grid-template-columns: auto;
+		padding: 5px;
+	}
+
+	.form-style{
+		width: inherit;
+		margin-left: unset;
+	}
+
+	.form-cont{
+		margin-top: 20px;
+	}
+
+	hr{
+		display: block;
+		width: inherit;
+	}
+}
+
+@media only screen and (max-width: 991px){
+	.hid{
+		display: unset;
+	}
+}

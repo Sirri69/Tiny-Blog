@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{%load static%}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{%static "css/signup.css"%}">
+	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<title>Sign Up</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		const isLoggedIn = {{isLoggedIn}};
+		var flag = 0;
+		function checkuser(){
+			var uname = document.getElementById('Name').value.trim();
+			// var status = '';
+			fetch('/api/check_username?uname='+uname).then(res => res.text()).then(data => {
+				var status = data;
+				console.log(uname+':'+status)
+				
+				if(status == 'Not-OK' && flag == 0){
+					document.getElementById('username').innerHTML += '<div id="alert"> <br> <div class="alert alert-danger"> Username already in use </div> </div>';
+					document.getElementById('Name').value = uname;
+					flag = 1;
+				}
+				else if(status == 'OK' && flag == 1){
+					var t = document.getElementById('alert');
+					t.remove();
+					flag = 0;
+				}
+
+			});
+			// console.log(uname+':'+status);
+
+		}
+	</script>
+	<div id="app"></div>
+
+
+
+	<div class='container grid'>
+
+		<div style="font-family: 'Alegreya Sans',sans-serif;">
+			<h2 class="display-4" >Start writing your heart out.</h2>
+			<h2 class="display-4" > We won't judge.</h2>
+			<p class="lead">Write Stroies, Essays, Poems, Personal Experiences, Notes, Tutorials, Code, Gibberish, Novels, Songs, Critiques, whatever you want. And we will make sure your content reach to as many readers as possible. And if you are a reader, we will try our best to provide an awesome reading experince. Contact us <a href="/feedback">here</a>, if you wanna chat....</p>
+		</div>
+
+		<hr>
+
+
+
+		<div class='form-cont'>
+
+			<form class="form-style" action="/signup/confirm_email" method="post" oninput='pass2.setCustomValidity(pass2.value != pass1.value ? "Passwords do not match." : "")'>
+				{%csrf_token%}
+				<div class="form-group">
+					<label for="first_name">First Name</label>
+					<input class="form-control" id="first_name" name="f_name" placeholder="John" required oninput="checkuser()" maxlength="50">
+				</div>
+				<div class="form-group">
+					<label for="last_name">Last Name</label>
+					<input class="form-control" id="last_name" name="l_name" placeholder="Wick" required oninput="checkuser()" maxlength="50">
+				</div>
+				<div class="form-group" id='username'>
+					<label for="Name">Username </label>
+					<input class="form-control" id="Name" name="uname" placeholder="Baba_Yaga" required oninput="checkuser()" maxlength="50">
+				</div>
+
+
+				<div class="form-group">
+					<label for="Email">Email Address</label>
+					<input type="email" class="form-control" name="email" id="InputEmail" placeholder="yaga@gmail.com" required>
+				</div>
+
+				<div class="form-group">
+					<label for="Password1">Password</label>
+					<input type="password" required class="form-control" id="Password1" name=pass1 placeholder="Password" required>
+				</div>
+
+				<div class="form-group">
+					<label for="Password2">Confirm Password</label>
+					<input type="password" required class="form-control" id="Password2" placeholder="Confirm Password" name=pass2 required>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">Sign Up</button>
+				<br>
+				<br>
+				<span class="text-muted" style="font-size: 13.8px;"> Already have an account ? <a href="/login">Login</a> and start writing now ! </span>
+				<br>
+				<br>	
+			</div>
+
+
+
+
+
+
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+			<script src="{% static "frontend/main.js" %}"></script>
+		</body>
+		</html>

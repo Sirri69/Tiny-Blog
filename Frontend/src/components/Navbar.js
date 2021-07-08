@@ -23,7 +23,9 @@ function Navbar(props){
 		elems.push(
 			<Menu mode="horizontal" style={rightStyle}>
 				<Menu.Item key="LogIn" icon={<LoginOutlined />}>
+					<a href='/login'>
 					Login
+					</a>
 				</Menu.Item>
 			</Menu>
 			);

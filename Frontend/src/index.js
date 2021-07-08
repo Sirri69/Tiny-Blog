@@ -10,12 +10,17 @@ import Navbar from './components/Navbar.js'
 import "../static/css/style.css";
 
 
-const App = (props) => ([<Navbar isLoggedIn={false}/>]); 
+const Index = (props) => ([<Navbar isLoggedIn={isLoggedIn}/>]);
+const LogIn = (props) => ([<Navbar isLoggedIn={isLoggedIn}/>]);
+const SignUp = (props) => ([<Navbar isLoggedIn={isLoggedIn}/>]);
+
 const container = document.getElementById("app");
 render(
 	<Router>
 		<Switch>
-			<Route exact path='/' component={()=><Navbar isLoggedIn={false}/>}/>
+			<Route exact path='/' component={Index}/>
+			<Route exact path='/login' component={LogIn}/>
+			<Route exact path='/signup' component={SignUp}/>
 		</Switch>
 	</Router>
 
