@@ -9,5 +9,8 @@ urlpatterns = [
     path('login', views.login_user),
     path('profile', views.profile),
     path('confirm_email/<str:enc>', views.confirm_email),
-    path('test', views.register)
+    path('reset_password/<str:enc>', views.password_reset),
+    path('reset_password/', views.password_reset),
+    # path('')
+    path('test', views.password_reset)
 ]
