@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 
 import Navbar from './components/Navbar.js'
+import "antd/dist/antd.css";
 import "../static/css/style.css";
 
 

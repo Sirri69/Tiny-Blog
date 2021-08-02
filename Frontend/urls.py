@@ -12,5 +12,5 @@ urlpatterns = [
     path('reset_password/<str:enc>', views.password_reset),
     path('reset_password/', views.password_reset),
     # path('')
-    path('test', views.password_reset)
+    path('home', views.home)
 ]

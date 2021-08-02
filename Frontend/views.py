@@ -98,14 +98,16 @@ def password_reset(request, enc='def'):
 			usr.password = make_password(password)
 			usr.save()
 			return HttpResponse(f'''We have changed your password to {password}, you can change it in settings.
-			 <br> Please click <a href="http://127.0.0.1:8080/login">here</a> to login''')
+			 <br> Please click <a href="http://127.0.0.1:8080/login">here</a> to login. Please remember this password,
+			  you will need it to reset it.''')
 
 
 
 
 
-def app(request):
-	return HttpResponse('App')
+def home(request):
+	return render(request, 'frontend/home.html')
+	# return HttpResponse('App')
 
 def confirm_email(request,enc):
 	f = fernet.Fernet(settings.CRYPT_KEY)
