@@ -28,5 +28,3 @@ render(
 
 	, container);
 
-
-console.log('Test');

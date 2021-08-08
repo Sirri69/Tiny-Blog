@@ -25,6 +25,7 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "antd": "^4.16.2"
+    "antd": "^4.16.2",
+    "axios": "^0.21.1"
   }
 }
